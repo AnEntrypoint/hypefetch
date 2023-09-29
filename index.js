@@ -1,6 +1,5 @@
 
 const ipc = require('hyper-ipc-secure');
-const goodbye = require('graceful-goodbye');
 require('dotenv').config();
 const webhook = async (inp) => {
     const outp = { ...inp }
@@ -14,13 +13,8 @@ const webhook = async (inp) => {
     console.log("WEBHOOK", outp)
     return outp;
 }
-const init = (kp)=>{
-    const node = ipc();
-    const serverKey = node.getSub(kp, process.env.SERVERNAME);
-    const webhookKey = node.getSub(kp, process.env.IPCNAME);
-  
-    node.lbserve(webhookKey, serverKey,process.env.IPCNAME, webhook);
-    goodbye(node.destroy)
+const init = (kp, node=ipc(), serverKey=node.getSub(kp, process.env.SERVERNAME), callKey=node.getSub(kp, process.env.IPCNAME))=>{
+    node.lbserve(callKey, serverKey,process.env.IPCNAME, runCall);
     return node;
 }
 export default init;
