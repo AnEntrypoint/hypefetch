@@ -1,7 +1,7 @@
 
 const ipc = require('hyper-ipc-secure');
 require('dotenv').config();
-const webhook = async (inp) => {
+const call = async (inp) => {
     const outp = { ...inp }
     const {url, body} = inp;
     console.log({inp, url, body})
@@ -14,7 +14,7 @@ const webhook = async (inp) => {
     return outp;
 }
 const init = (kp, node=ipc(), serverKey=node.getSub(kp, process.env.SERVERNAME), callKey=node.getSub(kp, process.env.IPCNAME))=>{
-    node.lbserve(callKey, serverKey,process.env.IPCNAME, runCall);
+    node.lbserve(callKey, serverKey,process.env.IPCNAME, call);
     return node;
 }
 export default init;
