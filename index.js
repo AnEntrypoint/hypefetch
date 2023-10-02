@@ -12,7 +12,7 @@ const call = async (inp) => {
     try {
         outp.text = await result.text()
         outp.json = await result.json()
-    } catch() {
+    } catch(e) {
     }
     return outp
 }
