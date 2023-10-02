@@ -20,4 +20,4 @@ const init = (kp, node=ipc(), serverKey=node.getSub(kp, process.env.SERVERNAME),
     node.lbserve(callKey, serverKey,process.env.IPCNAME, call)
     return node
 }
-export default init
+module.exports = init
