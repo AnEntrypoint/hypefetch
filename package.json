@@ -1,18 +1,15 @@
 {
   "name": "hypefetch",
-  "version": "0.6.0",
+  "version": "0.11.3",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "release": "npm version $(semver $npm_package_version -i minor) && npm publish --tag latest"
+    "release": "git commit -a -m ranrelease && npm version $(semver $npm_package_version -i patch) && npm publish --tag latest"
   },
   "bin": "run.js",
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "b4a": "^1.6.4",
-    "hypecall": "^0.0.1",
-    "hyper-ipc-secure": "latest",
-    "hypercore-crypto": "^3.4.0"
+    "hypecall": "latest"
   }
 }
