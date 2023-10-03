@@ -12,6 +12,7 @@ const init = (
     const callKey =serializedCallKey
     callKey.publicKey = Buffer.from(callKey.publicKey.data);
     callKey.scalar = Buffer.from(callKey.scalar.data);
+    console.log(callKey.publicKey.toString('hex'))
     node.lbserve(callKey, serverKey, process.env.IPCNAME, runCall)
     return node
 }

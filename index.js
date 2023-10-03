@@ -1,6 +1,4 @@
 #! /usr/bin/env node
-const ipc = require('hyper-ipc-secure')
-require('dotenv').config()
 const runCall = async (inp) => {
     const outp = { ...inp }
     const {url, body} = inp
