@@ -1,2 +1,2 @@
-# hypehook
-webhooks for hypeflow
+# hypefetch
+http calls for hypeflow
